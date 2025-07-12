@@ -1,0 +1,94 @@
+his document outlines the recommended development and deployment workflow for the VerdeAI project.
+
+---
+
+## ✅ PHASE 1: Project Setup
+
+1. **Initialize Git repo**
+```bash
+git init
+```
+
+2. **Create file structure**
+```
+/verdeai
+├── index.html
+├── styles.css (optional)
+├── .gitignore
+├── README.md
+└── WORKFLOW.md
+```
+
+3. **Add .gitignore**
+Include:
+```
+node_modules/
+.env
+.DS_Store
+```
+
+---
+
+## ✅ PHASE 2: Hugging Face Integration
+
+1. **Create Hugging Face Account**  
+   https://huggingface.co
+
+2. **Get API Key**  
+   Go to: Settings > Access Tokens  
+   Generate a `read` token and store it in `.env`:
+```
+HUGGINGFACE_API_KEY=your_key_here
+```
+
+3. **Replace API Key in `index.html`**
+In the JavaScript section:
+```js
+"Authorization": "Bearer YOUR_HUGGINGFACE_API_KEY"
+```
+
+4. **(Optional) Use .env securely via Node.js or serverless function**  
+   Move API calls to a backend to secure your key.
+
+---
+
+## ✅ PHASE 3: Testing
+
+1. **Test Locally**
+```bash
+npx serve .
+```
+
+2. **Verify Chatbot Works**
+- Ask: “How can AI reduce its carbon footprint?”
+- Confirm response from Hugging Face API
+
+3. **Handle Errors Gracefully**
+- Fallback if no `generated_text` is returned
+
+---
+
+## ✅ PHASE 4: Deployment
+
+1. **GitHub Pages**
+   - Push project to GitHub
+   - Go to Settings > Pages
+   - Choose `main` branch > root directory
+
+2. **Netlify/Vercel**
+   - Connect GitHub repo or drag-drop zip
+   - Set up `.env` securely if using backend functions
+
+---
+
+## ✅ PHASE 5: Future Features
+
+- [ ] Save chat history (localStorage or DB)
+- [ ] Rate CO2 impact per query
+- [ ] Integrate real offset APIs (Wren, Ecologi)
+- [ ] Add usage analytics
+- [ ] Move inference to secure backend
+
+---
+
+Prompt smarter. Live greener.
