@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VerdeAI - The Eco-Friendly AI Toolkit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f4f9f4; color: #2f3e2f; line-height: 1.6; }
+    header { background-color: #d1e7d1; padding: 4rem 2rem; text-align: center; }
+    header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    header p { font-size: 1.2rem; margin-bottom: 2rem; }
+    header .cta { background: #4caf50; color: white; padding: 0.75rem 2rem; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; text-decoration: none; }
+
+    section { padding: 3rem 2rem; max-width: 900px; margin: auto; }
+    section h2 { font-size: 2rem; margin-bottom: 1rem; color: #3a5f3a; }
+    .features div, .how-it-works div, .pricing div { margin-bottom: 1.5rem; }
+
+    .testimonials blockquote { font-style: italic; margin-bottom: 1rem; }
+    .email-signup input { padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; margin-right: 0.5rem; }
+    .email-signup button { background: #4caf50; color: white; border: none; padding: 0.6rem 1.5rem; border-radius: 4px; cursor: pointer; }
+
+    footer { text-align: center; padding: 2rem; background: #e6f2e6; font-size: 0.9rem; }
+    footer a { margin: 0 0.5rem; color: #2f3e2f; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌍 Meet VerdeAI: The First AI That Cares About the Planet</h1>
+    <p>Eco-friendly AI chat, research, and browsing to reduce your digital carbon footprint.</p>
+    <a href="#" class="cta">🌱 Try VerdeAI Free</a>
+  </header>
+
+  <section class="features">
+    <h2>🤖 Product Features</h2>
+    <div><strong>🌳 Eco-Friendly Chatbot:</strong> Energy tracking, low-energy suggestions, and offset integration.</div>
+    <div><strong>📊 Impact Dashboard:</strong> View and reduce your AI usage over time with badges and tips.</div>
+    <div><strong>💻 Lightweight Browser:</strong> Privacy-first browsing with energy-saving features (coming soon).</div>
+  </section>
+
+  <section class="how-it-works">
+    <h2>⏳ How It Works</h2>
+    <div><strong>1. Prompt:</strong> Ask VerdeAI anything, just like ChatGPT.</div>
+    <div><strong>2. Track:</strong> Learn the environmental impact of each interaction.</div>
+    <div><strong>3. Offset:</strong> Automatically contribute to reforestation and renewables.</div>
+  </section>
+
+  <section class="testimonials">
+    <h2>💬 What People Are Saying</h2>
+    <blockquote>“Finally, an AI tool that matches my values.” - Alex T.</blockquote>
+    <blockquote>“This is the Ecosia of AI. I’m all in.” - Rohan G.</blockquote>
+    <blockquote>“The carbon dashboard changed how I use tech.” - Maya L.</blockquote>
+  </section>
+
+  <section class="pricing">
+    <h2>💸 Pricing</h2>
+    <div><strong>Free Plan:</strong> 30 prompts/day, carbon tracking, EcoTips access.</div>
+    <div><strong>Premium ($9/mo):</strong> Unlimited access, auto carbon offsetting, team dashboards.</div>
+    <a href="#" class="cta">🌍 Subscribe & Offset Now</a>
+  </section>
+
+  <section class="email-signup">
+    <h2>📨 Stay in the Loop</h2>
+    <p>Join the waitlist for early access and sustainability updates.</p>
+    <input type="email" placeholder="Your email address">
+    <button>Join the Movement</button>
+  </section>
+
+  <footer>
+    <p>© 2025 VerdeAI — Prompt smarter. Live greener.</p>
+    <p><a href="#">About Us</a> | <a href="#">Blog</a> | <a href="#">Carbon Scoreboard</a> | <a href="#">Contact</a></p>
+  </footer>
+</body>
+</html>
