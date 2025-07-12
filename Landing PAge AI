@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -22,6 +23,23 @@
 
     footer { text-align: center; padding: 2rem; background: #e6f2e6; font-size: 0.9rem; }
     footer a { margin: 0 0.5rem; color: #2f3e2f; text-decoration: none; }
+
+    .chatbox {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+    .chatbox h2 { color: #3a5f3a; margin-bottom: 1rem; }
+    .chat-log { max-height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem; background: #f9f9f9; border-radius: 6px; }
+    .chat-entry { margin-bottom: 1rem; }
+    .chat-entry.user { font-weight: bold; }
+    .chat-entry.ai { color: #3a5f3a; }
+    .chatbox form { display: flex; gap: 1rem; }
+    .chatbox input[type="text"] { flex: 1; padding: 0.6rem; border: 1px solid #ccc; border-radius: 6px; }
+    .chatbox button { padding: 0.6rem 1.2rem; background: #4caf50; color: white; border: none; border-radius: 6px; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -66,9 +84,63 @@
     <button>Join the Movement</button>
   </section>
 
+  <section class="chatbox">
+    <h2>🧠 Ask VerdeAI</h2>
+    <div class="chat-log" id="chat-log">
+      <div class="chat-entry ai">Hello! I'm VerdeAI. Ask me anything about AI and sustainability 🌱</div>
+    </div>
+    <form id="chat-form">
+      <input type="text" id="user-input" placeholder="Type your question here..." required>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
   <footer>
     <p>© 2025 VerdeAI — Prompt smarter. Live greener.</p>
     <p><a href="#">About Us</a> | <a href="#">Blog</a> | <a href="#">Carbon Scoreboard</a> | <a href="#">Contact</a></p>
   </footer>
+
+  <script>
+    const form = document.getElementById('chat-form');
+    const input = document.getElementById('user-input');
+    const chatLog = document.getElementById('chat-log');
+
+    async function getHuggingFaceResponse(prompt) {
+      const response = await fetch("https://api-inference.huggingface.co/models/google/flan-t5-small", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer YOUR_HUGGINGFACE_API_KEY"
+        },
+        body: JSON.stringify({ inputs: prompt })
+      });
+
+      const result = await response.json();
+      return result[0]?.generated_text || "Sorry, I couldn’t generate a response.";
+    }
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const userInput = input.value.trim();
+      if (!userInput) return;
+
+      const userEntry = document.createElement('div');
+      userEntry.className = 'chat-entry user';
+      userEntry.textContent = `You: ${userInput}`;
+      chatLog.appendChild(userEntry);
+
+      const loadingEntry = document.createElement('div');
+      loadingEntry.className = 'chat-entry ai';
+      loadingEntry.textContent = `VerdeAI: Thinking...`;
+      chatLog.appendChild(loadingEntry);
+
+      input.value = '';
+      chatLog.scrollTop = chatLog.scrollHeight;
+
+      const aiText = await getHuggingFaceResponse(userInput);
+      loadingEntry.textContent = `VerdeAI: ${aiText}`;
+      chatLog.scrollTop = chatLog.scrollHeight;
+    });
+  </script>
 </body>
 </html>
